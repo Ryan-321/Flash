@@ -3,7 +3,7 @@ class SubjectsController < ApplicationController
   def index
     @subjects = Subject.all
 
-    render json: @subjects.to_json, status: :ok
+    # render json: @subjects.to_json, status: :ok
   end
   def show
     @subject = Subject.find(params[:id])
