@@ -3,4 +3,5 @@ Rails.application.routes.draw do
     resources :cards, except: [:new, :edit]
   end
   root to: redirect('/subjects')
+  get '/flash', to: 'pages#index'
 end

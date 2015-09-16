@@ -2,8 +2,11 @@ class SubjectsController < ApplicationController
 
   def index
     @subjects = Subject.all
+    respond_to do |format|
+      format.json {    render json: @subjects.to_json, status: :ok  }
+      format.html
+    end
 
-    # render json: @subjects.to_json, status: :ok
   end
   def show
     @subject = Subject.find(params[:id])

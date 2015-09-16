@@ -4,8 +4,8 @@
     '$routeProvider',
     function($routeProvider){
       $routeProvider.
-      when("/", {
-        templateUrl: 'app/assets/javascripts/views/subjects/index.html',
+      when("/flash", {
+        templateUrl: 'assets/views/subjects/index.html',
         controller: 'subjectsController',
         controllerAs: 'subjectsCtrl'})
     }

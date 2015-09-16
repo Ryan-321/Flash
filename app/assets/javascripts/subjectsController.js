@@ -4,7 +4,9 @@
 
  // index controller
   subjectsController.controller('subjectsController', ['Subject', function(Subject) {
-      this.subjects = Subject.query();
+      this.subjects = Subject.query(function(data){
+        console.log(data)
+      });
       console.log(this.subjects)
     }]);
 

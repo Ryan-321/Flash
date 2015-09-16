@@ -2,7 +2,7 @@
   var subjectServices = angular.module('subjectServices', ['ngResource']);
 
   subjectServices.factory('Subject', ['$resource', function($resource) {
-    return $resource('http://localhost:3000/subjects', {}, {
+    return $resource('http://localhost:3000/subjects/:id.json', {}, {
       update: {method:'PUT'}
     });
   }]);
