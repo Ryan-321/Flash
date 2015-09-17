@@ -2,4 +2,5 @@
 
 
 <p>{{showSubjectsCtrl.subject.title}} - {{showSubjectsCtrl.subject.definition}}</p>
-<button ng-click="showSubjectsCtrl.delete(showSubjectsCtrl.subject.id)">Delete Subject</button>
+<a ng-href="./#/subjects/{{showSubjectsCtrl.subject.id}}/edit">Edit Subject</a>
+<p ng-click="showSubjectsCtrl.delete(showSubjectsCtrl.subject.id)">Delete Subject</p>

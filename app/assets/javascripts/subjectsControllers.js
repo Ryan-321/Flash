@@ -39,9 +39,12 @@
 
 
   // edit controller
-  subjectsControllers.contrller('editSubjectsController', ['$location', '$routeParams', 'Subject', function($location, $routeParams, Subject){
-    this.subject = Subject.get({id: $routeParams.id} // identifies the subject using routeParams to grab id from URL
-
+  subjectsControllers.controller('editSubjectsController', ['$location', '$routeParams', 'Subject', function($location, $routeParams, Subject){
+    this.subject = Subject.get({id: $routeParams.id}); // identifies the subject using routeParams to grab id from URL
+    this.update = function(){
+    this.subject.$update({id: this.subject.id});
+    $location.path("/subjects/" + this.subject.id)
+    }
   }]); // closes editSubjectsController
 
 

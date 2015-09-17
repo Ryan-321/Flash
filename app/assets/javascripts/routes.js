@@ -19,7 +19,7 @@
         controller: 'showSubjectsController',
         controllerAs: 'showSubjectsCtrl'
       }).
-      when({"/subjects/:id/edit"
+      when("/subjects/:id/edit", {
         templateUrl: 'assets/views/subjects/edit.html',
         controller: 'editSubjectsController',
         controllerAs: 'editSubjectsCtrl'
