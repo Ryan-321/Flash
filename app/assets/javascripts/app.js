@@ -2,7 +2,7 @@
   var app = angular.module('flash', [
     'ngRoute',
     'ngResource',
-    'subjectsController',
+    'subjectsControllers',
     'subjectRouter',
     'subjectServices'
     // 'subjectDirectives'

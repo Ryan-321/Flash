@@ -6,11 +6,6 @@ class SubjectsController < ApplicationController
       format.json {    render json: @subjects.to_json, status: :ok  }
       format.html
     end
-
-  end
-  def show
-    @subject = Subject.find(params[:id])
-    render json: @subject.to_json, status: :ok
   end
 
   def create
@@ -21,6 +16,11 @@ class SubjectsController < ApplicationController
     else
       render json: @subject.errors, status: :unprocessable_entity
     end
+  end
+
+  def show
+    @subject = Subject.find(params[:id])
+    render json: @subject.to_json, status: :ok
   end
 
   def update
@@ -38,10 +38,9 @@ class SubjectsController < ApplicationController
     render json: {message: "success"}, status: :ok
   end
 
-  private
     # Never trust parameters from the scary internet, only allow the white list through.
-    def subject_params
-      params.require(:subject).permit(:title, :definition)
-    end
+  def subject_params
+    params.require(:subject).permit(:title, :definition)
+  end
 
 end
