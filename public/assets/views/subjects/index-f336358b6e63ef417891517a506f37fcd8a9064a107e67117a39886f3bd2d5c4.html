@@ -1,0 +1,7 @@
+<h1>Your Subjects</h1>
+
+<a ng-href="./#/subjects/new">New Subject</a>
+
+<div ng-repeat="subject in subjectsCtrl.subjects">
+  <p><a ng-href="./#/subjects/{{subject.id}}" >{{subject.title}}</a> - {{subject.definition}}</p>
+</div>
