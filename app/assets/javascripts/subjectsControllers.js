@@ -40,9 +40,11 @@
       Card.save({subjectId: $routeParams.id}, card, function(card){
         console.log(card)
         self.subject.cards.push(card)
-        self.card = {}
+        self.card = {}, function() {
+          $location.path("/subjects/" + self.subject.id)
+
+        }
       })
-      $location.path("/subjects" + this.subject.id)
     }
 
   }]); // closes showSubjectsController
