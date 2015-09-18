@@ -23,10 +23,10 @@
 
 
   // show controller
-  subjectsControllers.controller('showSubjectsController', ['$routeParams','$location','$http', 'Subject', function($routeParams, $location, $http, Subject){
-    this.subject = Subject.get({id: $routeParams.id} // function(subject){
-      // subject.cards = Card.query({subjectId: $routeParams.id}); -  where cards will go
-    // }
+  subjectsControllers.controller('showSubjectsController', ['$routeParams','$location','$http', 'Subject', 'Card', function($routeParams, $location, $http, Subject, Card){
+    this.subject = Subject.get({id: $routeParams.id},  function(subject){
+      subject.cards = Card.query({subjectId: $routeParams.id});
+    }
   );
 
     this.delete = function(id){
@@ -34,6 +34,16 @@
 	      $location.path("/subjects")
       });
     }
+
+    this.createCard = function(card){
+      var self = this
+      Card.save({subjectId: $routeParams.id}, card, function(card){
+        console.log(card)
+      self.subject.cards.push(card)
+      self.card = {}
+      })
+    }
+
   }]); // closes showSubjectsController
 
 
