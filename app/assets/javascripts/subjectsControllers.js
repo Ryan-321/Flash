@@ -38,11 +38,9 @@
     this.createCard = function(card){
       var self = this
       Card.save({subjectId: $routeParams.id}, card, function(card){
-        console.log(card)
-        self.subject.cards.push(card)
+        self.subject.cards.push(self.card)
         self.card = {}, function() {
           $location.path("/subjects/" + self.subject.id)
-
         }
       })
     }

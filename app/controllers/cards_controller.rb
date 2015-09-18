@@ -35,7 +35,7 @@ end
 private
   # Never trust parameters from the scary internet, only allow the white list through.
   def card_params
-    params.require(:card).permit(:question, :anwser, :subject_id)
+    params.require(:card).permit(:question, :answer, :subject_id)
   end
 
 

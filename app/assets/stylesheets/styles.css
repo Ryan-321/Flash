@@ -1,0 +1,38 @@
+h1 {
+  font-family: 'Amatic SC', cursive;
+  font-size: 4em;
+  display: inline-block;
+  margin: 0 0 0 1rem;
+}
+header{
+  border-bottom: 3px solid black;
+}
+nav{
+  display: inline-block;
+  margin-left: 50rem;
+}
+a {
+  text-decoration: none;
+}
+h2{
+  font-family: 'Amatic SC', cursive;
+  text-align: center;
+  font-size: 3rem;
+}
+.small{
+  font-size: .5em;
+  display: inline;
+  margin: 0 .3em;
+  cursor: pointer;
+}
+.subjects{
+  width: 70%;
+  margin:0 auto;
+}
+.subject{
+  font-size: 3.5rem;
+  color: magenta;
+}
+p a{
+  font-size: 1.5rem;
+}

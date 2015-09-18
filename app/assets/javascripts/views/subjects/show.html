@@ -1,14 +1,6 @@
-<h1>Hello from Show</h1>
+<h2><span class="subject">{{showSubjectsCtrl.subject.title}}</span> - {{showSubjectsCtrl.subject.definition}}<a class="small" ng-href="./#/subjects/{{showSubjectsCtrl.subject.id}}/edit">Edit Subject</a>
+<span class="small" ng-click="showSubjectsCtrl.delete(showSubjectsCtrl.subject.id)">Delete Subject</span></h2>
 
-
-<p>{{showSubjectsCtrl.subject.title}} - {{showSubjectsCtrl.subject.definition}}</p>
-<a ng-href="./#/subjects/{{showSubjectsCtrl.subject.id}}/edit">Edit Subject</a>
-<p ng-click="showSubjectsCtrl.delete(showSubjectsCtrl.subject.id)">Delete Subject</p>
-
-<ul ng-repeat="card in showSubjectsCtrl.subject.cards | orderBy:'-created_at'">
-    <li>{{card.question}}</li>
-    <li>{{card.answer}}</li>
-</ul>
 
 <form ng-submit="showSubjectsCtrl.createCard(showSubjectsCtrl.card)">
   <label>Question</label>
@@ -17,3 +9,7 @@
   <input type="text" ng-model="showSubjectsCtrl.card.answer" name="answer">
   <button type="submit">Add Card</button>
 </form>
+
+<ul ng-repeat="card in showSubjectsCtrl.subject.cards">
+    <li>{{card.question}} ---- {{card.answer}}</li>
+</ul>

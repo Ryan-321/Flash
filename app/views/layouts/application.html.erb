@@ -3,6 +3,7 @@
 <head>
   <title>Flash</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-route.min.js"></script>
@@ -10,9 +11,12 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </head>
 <body>
-<h1><a ng-href="./#/subjects">FLASH</a></h1>
-
-
+  <header>
+    <h1><a ng-href="./#/subjects">FLASH</a></h1>
+  <nav>
+      <a ng-href="./#/subjects">Home</a>
+  </nav>
+</header>
 <%= yield %>
 
 </body>
