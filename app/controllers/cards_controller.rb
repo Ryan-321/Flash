@@ -5,6 +5,11 @@ class CardsController < ApplicationController
 
   render json: @cards.to_json, status: :ok
 end
+def show
+  @subject = Subject.find(params[:subject_id])
+  @card = Card.find(params[:id])
+  render json: @card.to_json, status: :ok
+end
 
 def create
   @subject = Subject.find(params[:subject_id])
@@ -18,17 +23,20 @@ def create
 end
 
 def update
-  @subject = Subject.find(params[:id])
-  if @subject.update(subject_params)
-    render json: @subject.to_json, status: :ok
+  @subject = Subject.find(params[:subject_id])
+  @card = Card.find(params[:id])
+
+  if @card.update(card_params)
+    render json: @card.to_json, status: :ok
   else
-    render json: @subject.errors, status: :unprocessable_entity
+    render json: @card.errors, status: :unprocessable_entity
   end
 end
 
 def destroy
-  @subject = Subject.find(params[:id])
-  @subject.destroy
+  @subject = Subject.find(params[:subject_id])
+  @card = Card.find(params[:id])
+  @card.destroy
   render json: {message: "success"}, status: :ok
 end
 

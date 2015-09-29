@@ -20,34 +20,45 @@
     }
   }]); // closes newSubjectsController
 
-
-
   // show controller
   subjectsControllers.controller('showSubjectsController', ['$routeParams','$location','$http', 'Subject', 'Card', function($routeParams, $location, $http, Subject, Card){
     this.subject = Subject.get({id: $routeParams.id},  function(subject){
       subject.cards = Card.query({subjectId: $routeParams.id});
     }
-  );
-
+  )
     this.delete = function(id){
+      console.log("This workss")
         Subject.delete({id: id}, function(){
 	      $location.path("/subjects")
       });
     }
-
     this.createCard = function(card){
       var self = this
       Card.save({subjectId: $routeParams.id}, card, function(card){
         self.subject.cards.push(self.card)
         self.card = {}, function() {
-          $location.path("/subjects/" + self.subject.id)
+          $location.path("/subjects/" + self.card.id)
         }
       })
     }
-
+    this.deleteCard = function(card) {
+      var self = this;
+      console.log(card)
+      Card.delete({subjectId: this.subject.id, id: card.id}, function() {
+        self.subject.cards = Card.query({subjectId: self.subject.id});
+      });
+    }
+    this.editCard = function(card) {
+      this.card = Card.get({subjectId: $routeParams.id, id: card.id})
+      console.log(card)
+      this.update = function() {
+        this.card.update({id: this.subject.id})
+      }
+      // Card.$update({subjectId: card.subject_id, id: card.id}, function(card) {
+      //   self.subject.cards = Card.query({subjectId: card.id});
+      // });
+    }
   }]); // closes showSubjectsController
-
-
 
   // edit controller
   subjectsControllers.controller('editSubjectsController', ['$location', '$routeParams', 'Subject', function($location, $routeParams, Subject){
@@ -57,7 +68,4 @@
     $location.path("/subjects/" + this.subject.id)
     }
   }]); // closes editSubjectsController
-
-
-
 })()

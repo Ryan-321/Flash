@@ -11,5 +11,5 @@
 </form>
 
 <ul ng-repeat="card in showSubjectsCtrl.subject.cards">
-    <li>{{card.question}} ---- {{card.answer}}</li>
+    <li>{{card.question}} ---- {{card.answer}}<span ng-click="showSubjectsCtrl.deleteCard(card)">(X)</span><span ng-click="showSubjectsCtrl.editCard(card)">(Edit)</span></li>
 </ul>

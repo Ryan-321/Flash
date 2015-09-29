@@ -34,6 +34,8 @@ class SubjectsController < ApplicationController
 
   def destroy
     @subject = Subject.find(params[:id])
+    @cards = @subject.cards
+    @cards.destroy_all
     @subject.destroy
     render json: {message: "success"}, status: :ok
   end

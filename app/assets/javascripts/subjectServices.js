@@ -8,12 +8,8 @@
   }]);
 
   subjectServices.factory('Card', ['$resource', function($resource) {
-    return $resource('./subjects/:subjectId/cards/:id', {}, {
+    return $resource('./subjects/:subjectId/cards/:id.json', {}, {
       update: {method:'PUT'}
     });
   }]);
 })()
-
-// http://localhost:3000 is local url
-
-// use when pushing up to heroku, https://wdi-flash.herokuapp.com
