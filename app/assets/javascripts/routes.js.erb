@@ -24,6 +24,11 @@
         controller: 'editSubjectsController',
         controllerAs: 'editSubjectsCtrl'
       }).
+      when("/subjects/:id/add", {
+        templateUrl: '<%= asset_path("views/subjects/add.html")%>',
+        controller: 'showSubjectsController',
+        controllerAs: 'showSubjectsCtrl'
+      }).
       otherwise({
         redirectTo: '/subjects'
       })

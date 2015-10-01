@@ -1,15 +1,18 @@
-<h2><span class="subject">{{showSubjectsCtrl.subject.title}}</span> - {{showSubjectsCtrl.subject.definition}}<a class="small" ng-href="./#/subjects/{{showSubjectsCtrl.subject.id}}/edit">Edit Subject</a>
-<span class="small" ng-click="showSubjectsCtrl.delete(showSubjectsCtrl.subject.id)">Delete Subject</span></h2>
+<div class="header">
+  <h2>{{showSubjectsCtrl.subject.title}}</h2>
+  <h3>
+    <a ng-href="./#/subjects/{{showSubjectsCtrl.subject.id}}/edit">edit</a>
+    <span ng-click="showSubjectsCtrl.delete(showSubjectsCtrl.subject.id)" class="delete">delete</span>
+    <a ng-href="./#/subjects/{{showSubjectsCtrl.subject.id}}/add">add card</a>
+  </h3>
+</div>
 
 
-<form ng-submit="showSubjectsCtrl.createCard(showSubjectsCtrl.card)">
-  <label>Question</label>
-  <input type="text" ng-model="showSubjectsCtrl.card.question" name="question">
-  <label>Answer</label>
-  <input type="text" ng-model="showSubjectsCtrl.card.answer" name="answer">
-  <button type="submit">Add Card</button>
-</form>
-
-<ul ng-repeat="card in showSubjectsCtrl.subject.cards">
-    <li>{{card.question}} ---- {{card.answer}}<span ng-click="showSubjectsCtrl.deleteCard(card)">(X)</span><span ng-click="showSubjectsCtrl.editCard(card)">(Edit)</span></li>
-</ul>
+<div class="card_container">
+  <div class="card" ng-repeat="card in showSubjectsCtrl.subject.cards">
+    <div>{{card.question}}</div>
+    <div>{{card.answer}}</div>
+    <span ng-click="showSubjectsCtrl.deleteCard(card)" class="delete">(X)</span>
+    <!-- <span ng-click="showSubjectsCtrl.editCard(card)">(Edit)</span> -->
+  </div>
+</div>
