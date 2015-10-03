@@ -6,6 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+Subject.destroy_all
+Card.destroy_all
+
 ruby = Subject.create({title: "Rails", definition: "Rails Commands"})
 js = Subject.create({title:"Javascript", definition: "Array Methods"})
 css = Subject.create({title:"CSS", definition: "Cascading Style Sheets"})

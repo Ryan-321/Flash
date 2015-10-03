@@ -10,9 +10,9 @@
 
 <div class="card_container">
   <div class="card" ng-repeat="card in showSubjectsCtrl.subject.cards">
-    <div>{{card.question}}</div>
-    <div>{{card.answer}}</div>
-    <span ng-click="showSubjectsCtrl.deleteCard(card)" class="delete">(X)</span>
+    <div class="question"><p>{{card.question}}</p></div>
+    <div class="answer"><p>{{card.answer}}</p></div>
+    <span ng-click="showSubjectsCtrl.deleteCard(card)" class="delete_card">(X)</span>
     <!-- <span ng-click="showSubjectsCtrl.editCard(card)">(Edit)</span> -->
   </div>
 </div>

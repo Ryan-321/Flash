@@ -2,10 +2,10 @@
 <div>
   <div id="createSubject">
     <form ng-submit="newSubjectsCtrl.create()">
-      <label>Title</label>
-      <input type="text" name="title" ng-model="newSubjectsCtrl.subject.title">
-      <label>Definition</label>
-      <input type="text" name="definition" ng-model="newSubjectsCtrl.subject.definition">
+      <!-- <label>Title</label> -->
+      <input type="text" name="title" placeholder="title..." maxlength="50" ng-model="newSubjectsCtrl.subject.title">
+      <!-- <label>Definition</label> -->
+      <input type="text" name="definition" placeholder="definition..." maxlength="50" ng-model="newSubjectsCtrl.subject.definition">
       <button class="new">New Subject</button>
     </form>
   </div>
