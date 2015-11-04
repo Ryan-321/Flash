@@ -4,11 +4,6 @@ a {
   color: #DCC1A6;
   transition: all .5s ease;
 }
-.delete{
-  color: #D7C19A;
-  cursor: pointer;
-  transition: all .5s ease;
-}
 a:hover,
 .delete:hover{
   color: #F0F9FF;
@@ -17,6 +12,12 @@ body{
   background: #4E6D4D;
   font-family: 'Josefin Sans', sans-serif;
   /*text-shadow: 0 1px 1px hsla(0,0%,100%,.9);  --  need to change select and put on just text  */
+}
+div.header{
+  margin: 0 auto;
+  width: 50%;
+  border-left: 5px solid rgba(0,0,0,.3);
+  border-right: 5px solid rgba(0,0,0,.3);
 }
 h1 {
   font-family: 'Amatic SC', cursive;
@@ -48,12 +49,6 @@ h3{
   text-align: center;
   font-size: 1.5em;
 }
-div.header{
-  margin: 0 auto;
-  width: 50%;
-  border-left: 5px solid rgba(0,0,0,.3);
-  border-right: 5px solid rgba(0,0,0,.3);
-}
 nav{
   display: inline-block;
   margin-left: 60%;
@@ -61,7 +56,56 @@ nav{
 
 /*********   CLASSES   ************/
 
-.subjectsContainer{
+.card{
+  display: inline-block;
+  width: 40%;
+  height: 10em;
+  text-align: center;
+  padding: 1em;
+  margin-left: 5%;
+  margin-top: .5em;
+  background: rgba(255,255,255,.1);
+  position: relative;
+  overflow: scroll;
+}
+.card_container{
+  width: 90%;
+  margin: 0 auto;
+}
+.delete{
+  color: #D7C19A;
+  cursor: pointer;
+  transition: all .5s ease;
+}
+.delete_card{
+  bottom: .5em;
+  right: .5em;
+}
+.delete_card, .show_answer{
+  position: absolute;
+  cursor: pointer;
+}
+.delete_card:hover{
+  color: #DCC1A6;
+}
+.delete_card:hover:before{
+  content: "delete card";
+  color: #DCC1A6;
+  margin-right: .5em;
+}
+.show_answer{
+  bottom: .5em;
+  left: .5em;
+}
+.show_answer:hover{
+  color: #DCC1A6;
+}
+.show_answer:hover:after{
+  content:"show answer?";
+  color: #DCC1A6;
+  margin-left: .5em;
+}
+.subjects_container{
   width: 80%;
   margin: 2em auto;
 }
@@ -73,44 +117,13 @@ nav{
   border-top: 5px solid rgba(81, 205, 200,.2);
   background: rgba(255,255,255,.1);
 }
-.card{
-  display: inline-block;
-  width: 40%;
-  height: 10em;
-  text-align: center;
-  padding: 1em;
-  margin-left: 5%;
-  margin-top: .5em;
-  background: rgba(255,255,255,.1);
-  position:relative;
-}
 .question, .answer{
-  position:absolute;
   width: 90%;
   margin: 1em auto;
   text-align: center;
 }
-.answer{
-  display:none;
-}
-.card_container{
-  width: 90%;
-  margin: 0 auto;
-}
-.delete_card{
-  position: absolute;
-  bottom: .5em;
-  right: .5em;
-  cursor: pointer;
-}
-.delete_card:hover{
-  color: #DCC1A6;
-}
-.delete_card:hover:before{
-  content: "delete?";
-  color: #DCC1A6;
-  z-index: 20;
-  margin-right: .5em;
+.question > p, .answer > p{
+  font-size: 1.5em;
 }
 
 
@@ -120,6 +133,7 @@ nav{
 	background: #F0F9FF;
 	position: fixed;
   border: 1px solid black;
+  z-index: 99;
 	}
 	#left, #right {
 		top: 0; bottom: 0;
@@ -179,4 +193,34 @@ input:focus,
 textarea:focus,
 button:focus  {
     outline: none;
+}
+
+/*********   MEDIA QUERIES   ************/
+
+@media screen and (max-width: 700px) {
+  #top, #right, #bottom, #left {
+    display:none;
+  }
+  h1 {
+    text-align: center;
+    margin: 0 auto;
+  }
+  .subjects_container,.card_container{
+    width:85%;
+    margin: 2em auto;
+  }
+  .subjects{
+    width: 100%;
+    margin: 1em 0;
+  }
+  .card{
+    width: 90%;
+    margin:1em auto;
+  }
+  h2 {
+    display: none;
+  }
+  div.header {
+    border: none;
+  }
 }

@@ -42,15 +42,7 @@
         self.subject.cards = Card.query({subjectId: self.subject.id});
       });
     }
-    this.editCard = function(card) {
-      this.card = Card.get({subjectId: $routeParams.id, id: card.id})
-      this.update = function() {
-        this.card.update({id: this.subject.id})
-      }
-      // Card.$update({subjectId: card.subject_id, id: card.id}, function(card) {
-      //   self.subject.cards = Card.query({subjectId: card.id});
-      // });
-    }
+
   }]); // closes showSubjectsController
 
   // edit controller
@@ -61,4 +53,6 @@
     $location.path("/subjects/" + this.subject.id)
     }
   }]); // closes editSubjectsController
+
+
 })()

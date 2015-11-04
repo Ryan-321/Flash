@@ -1,11 +1,11 @@
 
 <div class="header">
-  <h2>Choose Your Subject</h2>
-  <h3><a ng-href="./#/subjects/new">add new subject</a></h3>
+  <h2>Choose Subject</h2>
+  <h3><a ng-href="./#/subjects/new">add subject</a></h3>
 </div>
 
 
-  <div class="subjectsContainer">
+  <div class="subjects_container">
     <div class="subjects" ng-repeat="subject in subjectsCtrl.subjects">
       <h3><a ng-href="./#/subjects/{{subject.id}}">{{subject.title}}</a></h3>
       <p>{{subject.definition}}</p>
