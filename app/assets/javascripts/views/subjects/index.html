@@ -6,8 +6,10 @@
 
 
   <div class="subjects_container">
-    <div class="subjects" ng-repeat="subject in subjectsCtrl.subjects">
-      <h3><a ng-href="./#/subjects/{{subject.id}}">{{subject.title}}</a></h3>
-      <p>{{subject.definition}}</p>
-    </div>
+      <a class="subjects_outer" ng-href="./#/subjects/{{subject.id}}" ng-repeat="subject in subjectsCtrl.subjects">
+        <div class="subjects_inner">
+          <h3>{{subject.title}}</h3>
+          <p>{{subject.definition}}</p>
+        </div>
+      </a>
   </div>
